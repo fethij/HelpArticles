@@ -43,6 +43,7 @@ include(":core:domain")
 include(":core:model")
 include(":core:navigation")
 include(":core:network")
+include(":core:sync")
 
 include(":feature:detail")
 include(":feature:articles")

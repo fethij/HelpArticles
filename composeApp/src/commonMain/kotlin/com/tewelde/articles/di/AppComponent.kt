@@ -3,6 +3,7 @@ package com.tewelde.articles.di
 import com.slack.circuit.foundation.Circuit
 import com.slack.circuit.runtime.presenter.Presenter
 import com.slack.circuit.runtime.ui.Ui
+import com.tewelde.articles.AppInitializers
 import com.tewelde.articles.core.common.di.UiScope
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
@@ -10,7 +11,9 @@ import software.amazon.lastmile.kotlin.inject.anvil.ContributesTo
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 
 @SingleIn(AppScope::class)
-interface AppComponent
+interface AppComponent{
+    val appInitializers: AppInitializers
+}
 
 @ContributesTo(UiScope::class)
 interface CircuitModule {

@@ -47,6 +47,7 @@ kotlin {
             implementation(projects.core.database)
             implementation(projects.core.domain)
             implementation(projects.core.network)
+            implementation(projects.core.sync)
 
             implementation(projects.feature.articles)
             implementation(projects.feature.detail)
@@ -98,6 +99,8 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
@@ -106,6 +109,7 @@ android {
     }
     dependencies {
         debugImplementation(compose.uiTooling)
+        coreLibraryDesugaring(libs.desugar.jdk.libs)
     }
 
     testOptions {
