@@ -1,5 +1,3 @@
-### Module Graph
-
 # Help Articles
 
 A Kotlin Multiplatform app which is scalable, maintainable and testable with modern architecture.
@@ -84,6 +82,7 @@ Background work not yet implemented in Web, JVM, and iOS platforms.
 
 [Turbine](https://github.com/cashapp/turbine) (Testing)
 
+### Module Graph
 ```mermaid
 %%{
   init: {
