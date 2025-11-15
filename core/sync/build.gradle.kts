@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.articles.kotlinMultiplatform)
     alias(libs.plugins.articles.featureMultiplatform)
     alias(libs.plugins.articles.composeMultiplatform)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
