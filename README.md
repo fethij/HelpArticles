@@ -1,44 +1,5 @@
 ### Module Graph
 
-```mermaid
-%%{
-  init: {
-    'theme': 'neutral'
-  }
-}%%
-
-graph LR
-  :core:database --> :core:common
-  :core:database --> :core:model
-  :core:common --> :core:model
-  :composeApp --> :core:connectivity
-  :composeApp --> :core:navigation
-  :composeApp --> :core:data
-  :composeApp --> :core:database
-  :composeApp --> :core:domain
-  :composeApp --> :core:network
-  :composeApp --> :feature:articles
-  :composeApp --> :feature:detail
-  :core:network --> :core:common
-  :core:network --> :core:connectivity
-  :core:data --> :core:common
-  :core:data --> :core:model
-  :core:data --> :core:database
-  :core:data --> :core:network
-  :feature:articles --> :core:common
-  :feature:articles --> :core:connectivity
-  :feature:articles --> :core:domain
-  :feature:articles --> :core:model
-  :feature:articles --> :core:navigation
-  :core:domain --> :core:common
-  :core:domain --> :core:model
-  :core:domain --> :core:data
-  :feature:detail --> :core:common
-  :feature:detail --> :core:navigation
-  :feature:detail --> :core:model
-  :feature:detail --> :core:domain
-  :core:navigation --> :core:common
-```
 # Help Articles
 
 A Kotlin Multiplatform app which is scalable, maintainable and testable with modern architecture.
@@ -114,6 +75,7 @@ Background work not yet implemented in Web, JVM, and iOS platforms.
 [Ktor](https://ktor.io/) (Networking)
 
 [Room](https://developer.android.com/training/data-storage/room) (Database)
+
 [KStore](https://github.com/xxfast/KStore) (disk storage)
 
 [Kotlin Inject Anvil](https://github.com/amzn/kotlin-inject-anvil) (Dependency Injection) 
@@ -121,3 +83,43 @@ Background work not yet implemented in Web, JVM, and iOS platforms.
 [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) (Serialization)
 
 [Turbine](https://github.com/cashapp/turbine) (Testing)
+
+```mermaid
+%%{
+  init: {
+    'theme': 'neutral'
+  }
+}%%
+
+graph LR
+  :core:database --> :core:common
+  :core:database --> :core:model
+  :core:common --> :core:model
+  :composeApp --> :core:connectivity
+  :composeApp --> :core:navigation
+  :composeApp --> :core:data
+  :composeApp --> :core:database
+  :composeApp --> :core:domain
+  :composeApp --> :core:network
+  :composeApp --> :feature:articles
+  :composeApp --> :feature:detail
+  :core:network --> :core:common
+  :core:network --> :core:connectivity
+  :core:data --> :core:common
+  :core:data --> :core:model
+  :core:data --> :core:database
+  :core:data --> :core:network
+  :feature:articles --> :core:common
+  :feature:articles --> :core:connectivity
+  :feature:articles --> :core:domain
+  :feature:articles --> :core:model
+  :feature:articles --> :core:navigation
+  :core:domain --> :core:common
+  :core:domain --> :core:model
+  :core:domain --> :core:data
+  :feature:detail --> :core:common
+  :feature:detail --> :core:navigation
+  :feature:detail --> :core:model
+  :feature:detail --> :core:domain
+  :core:navigation --> :core:common
+```
