@@ -1,0 +1,52 @@
+package com.tewelde.articles
+
+import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
+@OptIn(ExperimentalWasmDsl::class)
+internal fun Project.configureKotlinMultiplatform(
+    extension: KotlinMultiplatformExtension
+) = extension.apply {
+    jvmToolchain(17)
+
+    androidTarget {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
+    }
+
+    jvm()
+
+    wasmJs {
+        browser()
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-kclass-fqn")
+        }
+    }
+
+    listOf(iosArm64(), iosSimulatorArm64())
+
+    applyDefaultHierarchyTemplate()
+
+    sourceSets.apply {
+        commonMain {
+            dependencies {
+                implementation(libs.findLibrary("kotlinx.coroutines.core").get())
+                implementation(libs.findLibrary("kermit").get())
+                implementation(libs.findBundle("kotlinInjectAnvil").get())
+            }
+
+            androidMain {
+                dependencies {
+                    implementation(libs.findLibrary("kotlinx.coroutines.android").get())
+                }
+
+                jvmMain.dependencies {
+                    implementation(libs.findLibrary("kotlinx.coroutines.swing").get())
+                }
+            }
+        }
+    }
+}
