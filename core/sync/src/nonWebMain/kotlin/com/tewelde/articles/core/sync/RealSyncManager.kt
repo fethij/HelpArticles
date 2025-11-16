@@ -1,5 +1,6 @@
 package com.tewelde.articles.core.sync
 
+import co.touchlab.kermit.Logger
 import dev.mattramotar.meeseeks.runtime.BGTaskManager
 import dev.mattramotar.meeseeks.runtime.oneTime
 import kotlinx.coroutines.CoroutineScope
@@ -31,7 +32,7 @@ class RealSyncManager(
                 .observe()
                 .collect { status ->
                     // Pending -> Running -> Finished
-                    println("#### Sync task status: $status")
+                    Logger.d { "#### Sync task status: $status" }
                 }
         }
 

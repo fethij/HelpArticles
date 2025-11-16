@@ -1,5 +1,6 @@
 package com.tewelde.articles.core.sync
 
+import co.touchlab.kermit.Logger
 import dev.mattramotar.meeseeks.runtime.AppContext
 import dev.mattramotar.meeseeks.runtime.RuntimeContext
 import dev.mattramotar.meeseeks.runtime.TaskResult
@@ -14,7 +15,7 @@ class SyncWorker(
         payload: SyncPayload,
         context: RuntimeContext
     ): TaskResult {
-        println("#### Running SyncWorker with payload: $payload")
+        Logger.d { "#### Running SyncWorker with payload: $payload" }
         return TaskResult.Success
     }
 }

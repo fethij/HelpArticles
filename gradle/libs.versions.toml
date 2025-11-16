@@ -31,7 +31,8 @@ composeIcons = "1.1.1"
 android-work = "2.11.0"
 turbine = "1.2.1"
 kstore = "1.0.0"
-meeseeks = "0.6.0-alpha02"
+meeseeks = "0.8.1-SNAPSHOT"
+#meeseeks = "0.6.0-alpha02"
 
 [libraries]
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }

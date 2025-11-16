@@ -1,7 +1,6 @@
 package com.tewelde.articles.di
 
 import android.app.Application
-import com.tewelde.articles.core.domain.SyncUseCase
 import dev.mattramotar.meeseeks.runtime.BGTaskManager
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
@@ -13,6 +12,5 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 abstract class AndroidAppComponent(
     @get:Provides val application: Application
 ) : AppComponent {
-    abstract val syncUseCase: SyncUseCase
     abstract val bGTaskManager: BGTaskManager
 }

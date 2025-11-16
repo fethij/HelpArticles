@@ -1,5 +1,8 @@
 package com.tewelde.articles.di
 
+import dev.mattramotar.meeseeks.runtime.BGTaskManager
+import me.tatarka.inject.annotations.Provides
+import platform.UIKit.UIApplication
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.MergeComponent
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
@@ -7,10 +10,16 @@ import kotlin.reflect.KClass
 
 @SingleIn(AppScope::class)
 @MergeComponent(AppScope::class)
-abstract class IosAppComponent : AppComponent {
+abstract class IosAppComponent(
+    @get:Provides val app: UIApplication
+) : AppComponent {
+
+    abstract val bGTaskManager: BGTaskManager
 
     companion object {
-        fun create() = IosAppComponent::class.createComponent()
+        fun create(
+            app: UIApplication
+        ) = IosAppComponent::class.createComponent(app)
     }
 }
 
@@ -19,4 +28,4 @@ abstract class IosAppComponent : AppComponent {
  * details.
  */
 @MergeComponent.CreateComponent
-expect fun KClass<IosAppComponent>.createComponent(): IosAppComponent
+expect fun KClass<IosAppComponent>.createComponent(app: UIApplication): IosAppComponent
