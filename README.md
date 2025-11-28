@@ -46,21 +46,6 @@ https://dribbble.com/shots/26101253-Help-Articles
   <img src="assets/web.png" width="250" alt=""/>
 </p>
 
-
-## Testing
-#### List Screen
-**Fresh install + offline**: Uninstall app → disable network → install → shows error
-
-**With cache + offline**: Launch with network → close → disable network → launch → shows cached data
-
-**Detail screen**: Shows data from list screen → loads content markdown → on error shows partial data
-
-#### Detail Screen
-**With cache + offline**: Launch with network → close → disable network → launch → open article → shows data
-
-## Trade offs
-Background work not yet implemented in Web, JVM, and iOS platforms.
-
 ## Libraries
 [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) (Share logic across platforms)
 
