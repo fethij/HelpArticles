@@ -1,5 +1,6 @@
 package com.tewelde.articles.core.sync.di
 
+import com.tewelde.articles.core.domain.SyncUseCase
 import com.tewelde.articles.core.sync.SyncPayload
 import com.tewelde.articles.core.sync.SyncWorker
 import dev.mattramotar.meeseeks.runtime.AppContext
@@ -17,12 +18,13 @@ interface NonWebSyncComponent : PlatformSyncComponent {
     @Provides
     @SingleIn(AppScope::class)
     fun provideMeeseeksConfiguration(
-        context: AppContext
+        context: AppContext,
+        useCase: SyncUseCase
     ): ConfigurationScope.() -> Unit = {
 //        minBackoff(20.seconds)
         maxRetryCount(3)
         maxParallelTasks(5)
         allowExpedited()
-        register<SyncPayload> { SyncWorker(context) }
+        register<SyncPayload> { SyncWorker(context, useCase) }
     }
 }
