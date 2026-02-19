@@ -4,6 +4,11 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+	</array>
     <key>BGTaskSchedulerPermittedIdentifiers</key>
     <array>
         <string>dev.mattramotar.meeseeks.task.refresh</string>

@@ -35,7 +35,5 @@ class RealSyncManager(
                     Logger.d { "#### Sync task status: $status" }
                 }
         }
-
     }
-
 }

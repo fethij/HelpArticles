@@ -22,6 +22,7 @@ kotlin {
                 jvmMain.get().dependsOn(this)
                 dependencies {
                     api(libs.meeseeks.runtime)
+                    implementation(libs.kotlinx.datetime)
                 }
             }
         }

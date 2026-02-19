@@ -1,9 +1,11 @@
 package com.tewelde.articles.core.sync
 
 import dev.mattramotar.meeseeks.runtime.TaskPayload
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
+@SerialName(SyncPayload.stableId)
 data object SyncPayload : TaskPayload {
 
     const val stableId: String = V_1_0_0

@@ -2,6 +2,7 @@ package com.tewelde.articles.core.sync.di
 
 import com.tewelde.articles.core.sync.SyncPayload
 import com.tewelde.articles.core.sync.SyncWorker
+import dev.mattramotar.meeseeks.runtime.AppContext
 import dev.mattramotar.meeseeks.runtime.ConfigurationScope
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
@@ -15,13 +16,13 @@ interface NonWebSyncComponent : PlatformSyncComponent {
 
     @Provides
     @SingleIn(AppScope::class)
-    fun provideMeeseeksConfiguration(): ConfigurationScope.() -> Unit = {
+    fun provideMeeseeksConfiguration(
+        context: AppContext
+    ): ConfigurationScope.() -> Unit = {
 //        minBackoff(20.seconds)
         maxRetryCount(3)
         maxParallelTasks(5)
         allowExpedited()
-        register<SyncPayload>(SyncPayload.stableId) { meeseeksAppContext ->
-            SyncWorker(meeseeksAppContext)
-        }
+        register<SyncPayload> { SyncWorker(context) }
     }
 }
